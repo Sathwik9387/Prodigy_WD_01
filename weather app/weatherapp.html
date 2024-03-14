@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather App</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    background-image: linear-gradient(to right, #00aaff, #0055ff);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0055ff;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Weather App</h1>
+  <p>Enter a location to get the weather:</p>
+  <input type="text" id="locationInput" placeholder="Enter location">
+  <button onclick="getWeather()">Get Weather</button>
+  <div id="weatherInfo"></div>
+</div>
+
+<script>
+  function getWeather() {
+    // Sample weather data
+    const sampleData = {
+      name: "New York",
+      main: {
+        temp: 20,
+        humidity: 70
+      },
+      weather: [{
+        description: "Partly cloudy"
+      }],
+      wind: {
+        speed: 5
+      }
+    };
+
+    const weatherInfo = document.getElementById('weatherInfo');
+    weatherInfo.innerHTML = `
+      <h2>Current Weather in ${sampleData.name}</h2>
+      <p>Temperature: ${sampleData.main.temp}°C</p>
+      <p>Description: ${sampleData.weather[0].description}</p>
+      <p>Humidity: ${sampleData.main.humidity}%</p>
+      <p>Wind Speed: ${sampleData.wind.speed} m/s</p>
+    `;
+  }
+</script>
+</body>
+</html>
